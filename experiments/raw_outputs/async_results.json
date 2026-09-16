@@ -1,0 +1,43 @@
+{
+    "sync_gossip": {
+        "accuracy": 0.852,
+        "rounds": 9,
+        "staleness_count": 0,
+        "runtime_sec": 2450
+    },
+    "async_gossip": {
+        "accuracy": 0.841,
+        "rounds": 12,
+        "staleness_count": 420,
+        "runtime_sec": 1610
+    },
+    "sync_hydrofed": {
+        "accuracy": 0.895,
+        "rounds": 6,
+        "staleness_count": 0,
+        "runtime_sec": 1850
+    },
+    "async_hydrofed": {
+        "accuracy": 0.887,
+        "rounds": 8,
+        "staleness_count": 260,
+        "runtime_sec": 1280
+    },
+    "staleness_distribution": [
+        0,
+        0,
+        1,
+        3,
+        8,
+        15,
+        22,
+        34,
+        45,
+        52,
+        40,
+        25,
+        12,
+        3,
+        0
+    ]
+}

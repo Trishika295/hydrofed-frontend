@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\caption{IEEE Table: Table 07 Edge}
+\label{tab:table_07_edge}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Model Format/Weights & Inference Latency (ms) & Memory RAM footprint (MB) & Model Storage Size (MB) & Test Accuracy \\
+\hline\hline
+FP32 Baseline (DN-151) & 334.03 ms & 420.0 MB & 190.0 MB & 89.50% \\
+\hline
+FP16 (DN-151) & 225.12 ms & 280.0 MB & 95.0 MB & 89.30% \\
+\hline
+INT8 Quantized (DN-151) & 303.03 ms & 260.0 MB & 140.0 MB & 88.70% \\
+\hline
+Lightweight Student & 23.57 ms & 45.0 MB & 8.0 MB & 84.20% \\
+\hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,782 @@
+{
+    "0": {
+        "total": 56,
+        "class_proportions": {
+            "BACTERIA": 0.14285714285714285,
+            "NORMAL": 0.5535714285714286,
+            "VIRUS": 0.30357142857142855
+        },
+        "class_counts": {
+            "BACTERIA": 8,
+            "NORMAL": 31,
+            "VIRUS": 17
+        }
+    },
+    "1": {
+        "total": 45,
+        "class_proportions": {
+            "BACTERIA": 0.9111111111111111,
+            "NORMAL": 0.0,
+            "VIRUS": 0.08888888888888889
+        },
+        "class_counts": {
+            "BACTERIA": 41,
+            "NORMAL": 0,
+            "VIRUS": 4
+        }
+    },
+    "2": {
+        "total": 36,
+        "class_proportions": {
+            "BACTERIA": 0.027777777777777776,
+            "NORMAL": 0.1388888888888889,
+            "VIRUS": 0.8333333333333334
+        },
+        "class_counts": {
+            "BACTERIA": 1,
+            "NORMAL": 5,
+            "VIRUS": 30
+        }
+    },
+    "3": {
+        "total": 42,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.023809523809523808,
+            "VIRUS": 0.9761904761904762
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 1,
+            "VIRUS": 41
+        }
+    },
+    "4": {
+        "total": 108,
+        "class_proportions": {
+            "BACTERIA": 0.21296296296296297,
+            "NORMAL": 0.7129629629629629,
+            "VIRUS": 0.07407407407407407
+        },
+        "class_counts": {
+            "BACTERIA": 23,
+            "NORMAL": 77,
+            "VIRUS": 8
+        }
+    },
+    "5": {
+        "total": 36,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.2222222222222222,
+            "VIRUS": 0.7777777777777778
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 8,
+            "VIRUS": 28
+        }
+    },
+    "6": {
+        "total": 90,
+        "class_proportions": {
+            "BACTERIA": 0.7555555555555555,
+            "NORMAL": 0.044444444444444446,
+            "VIRUS": 0.2
+        },
+        "class_counts": {
+            "BACTERIA": 68,
+            "NORMAL": 4,
+            "VIRUS": 18
+        }
+    },
+    "7": {
+        "total": 59,
+        "class_proportions": {
+            "BACTERIA": 0.03389830508474576,
+            "NORMAL": 0.13559322033898305,
+            "VIRUS": 0.8305084745762712
+        },
+        "class_counts": {
+            "BACTERIA": 2,
+            "NORMAL": 8,
+            "VIRUS": 49
+        }
+    },
+    "8": {
+        "total": 24,
+        "class_proportions": {
+            "BACTERIA": 0.20833333333333334,
+            "NORMAL": 0.5,
+            "VIRUS": 0.2916666666666667
+        },
+        "class_counts": {
+            "BACTERIA": 5,
+            "NORMAL": 12,
+            "VIRUS": 7
+        }
+    },
+    "9": {
+        "total": 14,
+        "class_proportions": {
+            "BACTERIA": 0.8571428571428571,
+            "NORMAL": 0.0,
+            "VIRUS": 0.14285714285714285
+        },
+        "class_counts": {
+            "BACTERIA": 12,
+            "NORMAL": 0,
+            "VIRUS": 2
+        }
+    },
+    "10": {
+        "total": 80,
+        "class_proportions": {
+            "BACTERIA": 0.3,
+            "NORMAL": 0.7,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 24,
+            "NORMAL": 56,
+            "VIRUS": 0
+        }
+    },
+    "11": {
+        "total": 38,
+        "class_proportions": {
+            "BACTERIA": 0.13157894736842105,
+            "NORMAL": 0.02631578947368421,
+            "VIRUS": 0.8421052631578947
+        },
+        "class_counts": {
+            "BACTERIA": 5,
+            "NORMAL": 1,
+            "VIRUS": 32
+        }
+    },
+    "12": {
+        "total": 30,
+        "class_proportions": {
+            "BACTERIA": 0.43333333333333335,
+            "NORMAL": 0.5333333333333333,
+            "VIRUS": 0.03333333333333333
+        },
+        "class_counts": {
+            "BACTERIA": 13,
+            "NORMAL": 16,
+            "VIRUS": 1
+        }
+    },
+    "13": {
+        "total": 27,
+        "class_proportions": {
+            "BACTERIA": 0.07407407407407407,
+            "NORMAL": 0.037037037037037035,
+            "VIRUS": 0.8888888888888888
+        },
+        "class_counts": {
+            "BACTERIA": 2,
+            "NORMAL": 1,
+            "VIRUS": 24
+        }
+    },
+    "14": {
+        "total": 28,
+        "class_proportions": {
+            "BACTERIA": 0.8571428571428571,
+            "NORMAL": 0.14285714285714285,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 24,
+            "NORMAL": 4,
+            "VIRUS": 0
+        }
+    },
+    "15": {
+        "total": 23,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.6086956521739131,
+            "VIRUS": 0.391304347826087
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 14,
+            "VIRUS": 9
+        }
+    },
+    "16": {
+        "total": 228,
+        "class_proportions": {
+            "BACTERIA": 0.9122807017543859,
+            "NORMAL": 0.0,
+            "VIRUS": 0.08771929824561403
+        },
+        "class_counts": {
+            "BACTERIA": 208,
+            "NORMAL": 0,
+            "VIRUS": 20
+        }
+    },
+    "17": {
+        "total": 17,
+        "class_proportions": {
+            "BACTERIA": 0.35294117647058826,
+            "NORMAL": 0.17647058823529413,
+            "VIRUS": 0.47058823529411764
+        },
+        "class_counts": {
+            "BACTERIA": 6,
+            "NORMAL": 3,
+            "VIRUS": 8
+        }
+    },
+    "18": {
+        "total": 60,
+        "class_proportions": {
+            "BACTERIA": 0.5333333333333333,
+            "NORMAL": 0.0,
+            "VIRUS": 0.4666666666666667
+        },
+        "class_counts": {
+            "BACTERIA": 32,
+            "NORMAL": 0,
+            "VIRUS": 28
+        }
+    },
+    "19": {
+        "total": 9,
+        "class_proportions": {
+            "BACTERIA": 0.1111111111111111,
+            "NORMAL": 0.8888888888888888,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 1,
+            "NORMAL": 8,
+            "VIRUS": 0
+        }
+    },
+    "20": {
+        "total": 48,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.2916666666666667,
+            "VIRUS": 0.7083333333333334
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 14,
+            "VIRUS": 34
+        }
+    },
+    "21": {
+        "total": 26,
+        "class_proportions": {
+            "BACTERIA": 0.15384615384615385,
+            "NORMAL": 0.6538461538461539,
+            "VIRUS": 0.19230769230769232
+        },
+        "class_counts": {
+            "BACTERIA": 4,
+            "NORMAL": 17,
+            "VIRUS": 5
+        }
+    },
+    "22": {
+        "total": 11,
+        "class_proportions": {
+            "BACTERIA": 0.5454545454545454,
+            "NORMAL": 0.36363636363636365,
+            "VIRUS": 0.09090909090909091
+        },
+        "class_counts": {
+            "BACTERIA": 6,
+            "NORMAL": 4,
+            "VIRUS": 1
+        }
+    },
+    "23": {
+        "total": 92,
+        "class_proportions": {
+            "BACTERIA": 0.20652173913043478,
+            "NORMAL": 0.6956521739130435,
+            "VIRUS": 0.09782608695652174
+        },
+        "class_counts": {
+            "BACTERIA": 19,
+            "NORMAL": 64,
+            "VIRUS": 9
+        }
+    },
+    "24": {
+        "total": 238,
+        "class_proportions": {
+            "BACTERIA": 0.9285714285714286,
+            "NORMAL": 0.008403361344537815,
+            "VIRUS": 0.06302521008403361
+        },
+        "class_counts": {
+            "BACTERIA": 221,
+            "NORMAL": 2,
+            "VIRUS": 15
+        }
+    },
+    "25": {
+        "total": 270,
+        "class_proportions": {
+            "BACTERIA": 0.5518518518518518,
+            "NORMAL": 0.11481481481481481,
+            "VIRUS": 0.3333333333333333
+        },
+        "class_counts": {
+            "BACTERIA": 149,
+            "NORMAL": 31,
+            "VIRUS": 90
+        }
+    },
+    "26": {
+        "total": 41,
+        "class_proportions": {
+            "BACTERIA": 0.5609756097560976,
+            "NORMAL": 0.21951219512195122,
+            "VIRUS": 0.21951219512195122
+        },
+        "class_counts": {
+            "BACTERIA": 23,
+            "NORMAL": 9,
+            "VIRUS": 9
+        }
+    },
+    "27": {
+        "total": 6,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.0,
+            "VIRUS": 1.0
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 0,
+            "VIRUS": 6
+        }
+    },
+    "28": {
+        "total": 56,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.9464285714285714,
+            "VIRUS": 0.05357142857142857
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 53,
+            "VIRUS": 3
+        }
+    },
+    "29": {
+        "total": 14,
+        "class_proportions": {
+            "BACTERIA": 0.7142857142857143,
+            "NORMAL": 0.2857142857142857,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 10,
+            "NORMAL": 4,
+            "VIRUS": 0
+        }
+    },
+    "30": {
+        "total": 86,
+        "class_proportions": {
+            "BACTERIA": 0.7674418604651163,
+            "NORMAL": 0.22093023255813954,
+            "VIRUS": 0.011627906976744186
+        },
+        "class_counts": {
+            "BACTERIA": 66,
+            "NORMAL": 19,
+            "VIRUS": 1
+        }
+    },
+    "31": {
+        "total": 90,
+        "class_proportions": {
+            "BACTERIA": 0.044444444444444446,
+            "NORMAL": 0.5333333333333333,
+            "VIRUS": 0.4222222222222222
+        },
+        "class_counts": {
+            "BACTERIA": 4,
+            "NORMAL": 48,
+            "VIRUS": 38
+        }
+    },
+    "32": {
+        "total": 11,
+        "class_proportions": {
+            "BACTERIA": 0.18181818181818182,
+            "NORMAL": 0.09090909090909091,
+            "VIRUS": 0.7272727272727273
+        },
+        "class_counts": {
+            "BACTERIA": 2,
+            "NORMAL": 1,
+            "VIRUS": 8
+        }
+    },
+    "33": {
+        "total": 1,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.0,
+            "VIRUS": 1.0
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 0,
+            "VIRUS": 1
+        }
+    },
+    "34": {
+        "total": 54,
+        "class_proportions": {
+            "BACTERIA": 0.9074074074074074,
+            "NORMAL": 0.0,
+            "VIRUS": 0.09259259259259259
+        },
+        "class_counts": {
+            "BACTERIA": 49,
+            "NORMAL": 0,
+            "VIRUS": 5
+        }
+    },
+    "35": {
+        "total": 14,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 0.7142857142857143,
+            "VIRUS": 0.2857142857142857
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 10,
+            "VIRUS": 4
+        }
+    },
+    "36": {
+        "total": 58,
+        "class_proportions": {
+            "BACTERIA": 0.6206896551724138,
+            "NORMAL": 0.2413793103448276,
+            "VIRUS": 0.13793103448275862
+        },
+        "class_counts": {
+            "BACTERIA": 36,
+            "NORMAL": 14,
+            "VIRUS": 8
+        }
+    },
+    "37": {
+        "total": 82,
+        "class_proportions": {
+            "BACTERIA": 0.5975609756097561,
+            "NORMAL": 0.23170731707317074,
+            "VIRUS": 0.17073170731707318
+        },
+        "class_counts": {
+            "BACTERIA": 49,
+            "NORMAL": 19,
+            "VIRUS": 14
+        }
+    },
+    "38": {
+        "total": 85,
+        "class_proportions": {
+            "BACTERIA": 0.9529411764705882,
+            "NORMAL": 0.03529411764705882,
+            "VIRUS": 0.011764705882352941
+        },
+        "class_counts": {
+            "BACTERIA": 81,
+            "NORMAL": 3,
+            "VIRUS": 1
+        }
+    },
+    "39": {
+        "total": 20,
+        "class_proportions": {
+            "BACTERIA": 0.3,
+            "NORMAL": 0.7,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 6,
+            "NORMAL": 14,
+            "VIRUS": 0
+        }
+    },
+    "40": {
+        "total": 130,
+        "class_proportions": {
+            "BACTERIA": 0.3076923076923077,
+            "NORMAL": 0.11538461538461539,
+            "VIRUS": 0.5769230769230769
+        },
+        "class_counts": {
+            "BACTERIA": 40,
+            "NORMAL": 15,
+            "VIRUS": 75
+        }
+    },
+    "41": {
+        "total": 99,
+        "class_proportions": {
+            "BACTERIA": 0.9595959595959596,
+            "NORMAL": 0.0,
+            "VIRUS": 0.04040404040404041
+        },
+        "class_counts": {
+            "BACTERIA": 95,
+            "NORMAL": 0,
+            "VIRUS": 4
+        }
+    },
+    "42": {
+        "total": 10,
+        "class_proportions": {
+            "BACTERIA": 0.1,
+            "NORMAL": 0.2,
+            "VIRUS": 0.7
+        },
+        "class_counts": {
+            "BACTERIA": 1,
+            "NORMAL": 2,
+            "VIRUS": 7
+        }
+    },
+    "43": {
+        "total": 172,
+        "class_proportions": {
+            "BACTERIA": 0.26744186046511625,
+            "NORMAL": 0.29069767441860467,
+            "VIRUS": 0.4418604651162791
+        },
+        "class_counts": {
+            "BACTERIA": 46,
+            "NORMAL": 50,
+            "VIRUS": 76
+        }
+    },
+    "44": {
+        "total": 174,
+        "class_proportions": {
+            "BACTERIA": 0.28160919540229884,
+            "NORMAL": 0.15517241379310345,
+            "VIRUS": 0.5632183908045977
+        },
+        "class_counts": {
+            "BACTERIA": 49,
+            "NORMAL": 27,
+            "VIRUS": 98
+        }
+    },
+    "45": {
+        "total": 28,
+        "class_proportions": {
+            "BACTERIA": 0.5714285714285714,
+            "NORMAL": 0.39285714285714285,
+            "VIRUS": 0.03571428571428571
+        },
+        "class_counts": {
+            "BACTERIA": 16,
+            "NORMAL": 11,
+            "VIRUS": 1
+        }
+    },
+    "46": {
+        "total": 1,
+        "class_proportions": {
+            "BACTERIA": 0.0,
+            "NORMAL": 1.0,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 0,
+            "NORMAL": 1,
+            "VIRUS": 0
+        }
+    },
+    "47": {
+        "total": 15,
+        "class_proportions": {
+            "BACTERIA": 0.06666666666666667,
+            "NORMAL": 0.9333333333333333,
+            "VIRUS": 0.0
+        },
+        "class_counts": {
+            "BACTERIA": 1,
+            "NORMAL": 14,
+            "VIRUS": 0
+        }
+    },
+    "48": {
+        "total": 82,
+        "class_proportions": {
+            "BACTERIA": 0.07317073170731707,
+            "NORMAL": 0.9146341463414634,
+            "VIRUS": 0.012195121951219513
+        },
+        "class_counts": {
+            "BACTERIA": 6,
+            "NORMAL": 75,
+            "VIRUS": 1
+        }
+    },
+    "49": {
+        "total": 206,
+        "class_proportions": {
+            "BACTERIA": 0.5339805825242718,
+            "NORMAL": 0.2912621359223301,
+            "VIRUS": 0.17475728155339806
+        },
+        "class_counts": {
+            "BACTERIA": 110,
+            "NORMAL": 60,
+            "VIRUS": 36
+        }
+    },
+    "50": {
+        "total": 41,
+        "class_proportions": {
+            "BACTERIA": 0.2682926829268293,
+            "NORMAL": 0.0,
+            "VIRUS": 0.7317073170731707
+        },
+        "class_counts": {
+            "BACTERIA": 11,
+            "NORMAL": 0,
+            "VIRUS": 30
+        }
+    },
+    "51": {
+        "total": 9,
+        "class_proportions": {
+            "BACTERIA": 0.3333333333333333,
+            "NORMAL": 0.5555555555555556,
+            "VIRUS": 0.1111111111111111
+        },
+        "class_counts": {
+            "BACTERIA": 3,
+            "NORMAL": 5,
+            "VIRUS": 1
+        }
+    },
+    "52": {
+        "total": 119,
+        "class_proportions": {
+            "BACTERIA": 0.04201680672268908,
+            "NORMAL": 0.8487394957983193,
+            "VIRUS": 0.1092436974789916
+        },
+        "class_counts": {
+            "BACTERIA": 5,
+            "NORMAL": 101,
+            "VIRUS": 13
+        }
+    },
+    "53": {
+        "total": 158,
+        "class_proportions": {
+            "BACTERIA": 0.8544303797468354,
+            "NORMAL": 0.0189873417721519,
+            "VIRUS": 0.12658227848101267
+        },
+        "class_counts": {
+            "BACTERIA": 135,
+            "NORMAL": 3,
+            "VIRUS": 20
+        }
+    },
+    "54": {
+        "total": 67,
+        "class_proportions": {
+            "BACTERIA": 0.3880597014925373,
+            "NORMAL": 0.5671641791044776,
+            "VIRUS": 0.04477611940298507
+        },
+        "class_counts": {
+            "BACTERIA": 26,
+            "NORMAL": 38,
+            "VIRUS": 3
+        }
+    },
+    "55": {
+        "total": 81,
+        "class_proportions": {
+            "BACTERIA": 0.7160493827160493,
+            "NORMAL": 0.012345679012345678,
+            "VIRUS": 0.2716049382716049
+        },
+        "class_counts": {
+            "BACTERIA": 58,
+            "NORMAL": 1,
+            "VIRUS": 22
+        }
+    },
+    "56": {
+        "total": 174,
+        "class_proportions": {
+            "BACTERIA": 0.5632183908045977,
+            "NORMAL": 0.41379310344827586,
+            "VIRUS": 0.022988505747126436
+        },
+        "class_counts": {
+            "BACTERIA": 98,
+            "NORMAL": 72,
+            "VIRUS": 4
+        }
+    },
+    "57": {
+        "total": 75,
+        "class_proportions": {
+            "BACTERIA": 0.7866666666666666,
+            "NORMAL": 0.16,
+            "VIRUS": 0.05333333333333334
+        },
+        "class_counts": {
+            "BACTERIA": 59,
+            "NORMAL": 12,
+            "VIRUS": 4
+        }
+    },
+    "58": {
+        "total": 46,
+        "class_proportions": {
+            "BACTERIA": 0.13043478260869565,
+            "NORMAL": 0.021739130434782608,
+            "VIRUS": 0.8478260869565217
+        },
+        "class_counts": {
+            "BACTERIA": 6,
+            "NORMAL": 1,
+            "VIRUS": 39
+        }
+    },
+    "59": {
+        "total": 72,
+        "class_proportions": {
+            "BACTERIA": 0.05555555555555555,
+            "NORMAL": 0.625,
+            "VIRUS": 0.3194444444444444
+        },
+        "class_counts": {
+            "BACTERIA": 4,
+            "NORMAL": 45,
+            "VIRUS": 23
+        }
+    }
+}

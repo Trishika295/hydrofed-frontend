@@ -1,0 +1,18 @@
+{
+    "components": [
+        "Upload/input",
+        "Preprocessing",
+        "Model inference",
+        "MC uncertainty",
+        "XAI generation",
+        "Database logging"
+    ],
+    "latencies_ms": [
+        15.2,
+        8.4,
+        334.0,
+        480.0,
+        620.0,
+        5.1
+    ]
+}

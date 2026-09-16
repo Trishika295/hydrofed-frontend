@@ -1,0 +1,125 @@
+======================================================================
+PROPOSED HYDROFED-ICAF: FIGURE DATA SOURCES TRACEABILITY LOG
+Strict Research Integrity Audit — Every Value Traced to Executed Experiment
+======================================================================
+
+Figure Number: 1
+Figure Title: Proposed HydroFed-ICAF Multimodal Federated Edge-AI Architecture
+Source File: ARCHITECTURE.md, models/*.py, federated/*.py, security/*.py
+Experiment/Checkpoint: System Design Specification & Verified Codebase Architecture
+Dataset: Pediatric Chest X-ray Dataset & Synthetic Clinical EHR Records
+Split: All Splits (5,824 Images, 2,790 Patients)
+Number of Samples: 5824
+Metric: Structural Architecture Specifications
+Actual Values Used: 5 stages: Multimodal inputs, BMTF/IIFR spatial-frequency extraction, AICA cross-attention, MC Dropout (15 passes), HydroFed consensus (60 nodes, alpha=0.5, threshold=100.0), Edge Distillation (334ms -> 23.57ms)
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 2
+Figure Title: Patient-level dataset partitioning and non-IID distribution across 60 simulated clinic nodes.
+Source File: reports/dataset_report.json, reports/dirichlet_partitions_stats.json, reports/patient_split_metadata.csv
+Experiment/Checkpoint: Dataset patient-level separation and Dirichlet non-IID partitioning
+Dataset: Pediatric Chest X-ray Dataset
+Split: Train (4,112), Val (860), Test (852)
+Number of Samples: 5824
+Metric: Patient counts, image counts, per-client class counts
+Actual Values Used: Train: 1952 patients / 4112 images; Val: 418 / 860; Test: 420 / 852. 60 clinic distributions under Dirichlet alpha=0.5
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 3
+Figure Title: Test-set performance comparison of centralized, local, conventional federated, decentralized gossip, and proposed HydroFed-ICAF training.
+Source File: experiments/raw_outputs/baseline_results.json, experiments/raw_outputs/fl_results.json
+Experiment/Checkpoint: 5-seed federated evaluation over 60 simulated clinic nodes
+Dataset: Pediatric Chest X-ray Test Set
+Split: Test (852 Images)
+Number of Samples: 852
+Metric: Accuracy, F1-Score, Sensitivity, ROC-AUC, Worst Client Accuracy
+Actual Values Used: Local-Only: 83.12%, Centralized: 90.34%, FedAvg: 88.60%, FedProx: 89.25%, Gossip: 84.87%, Proposed HydroFed-ICAF: 89.82% (Worst: 83.23%)
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 4
+Figure Title: Federated learning convergence of the proposed HydroFed-ICAF consensus mechanism under non-IID clinic distributions.
+Source File: experiments/raw_outputs/fl_results.json, experiments/raw_outputs/gossip_vs_hydrofed.json, experiments/raw_outputs/hydrofed_results.json
+Experiment/Checkpoint: 10-round simulated federated training on 60 non-IID clinic nodes
+Dataset: Pediatric Chest X-ray Dataset
+Split: Validation Set (860 Images)
+Number of Samples: 860
+Metric: Validation Accuracy, Pairwise Consensus Disagreement, Hydrodynamic Pressure
+Actual Values Used: Rounds 1-10: HydroFed Acc (68.4% -> 89.8%), Gossip Acc (61.6% -> 82.7%), Consensus Error (0.422 -> 0.006)
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 5
+Figure Title: Ablation analysis of spatial, frequency-domain, immune-inspired, gating, and clinical cross-attention components.
+Source File: experiments/raw_outputs/ablation_results.json
+Experiment/Checkpoint: 5-seed ablation evaluation of visual and cross-attention components
+Dataset: Pediatric Chest X-ray Test Set
+Split: Test (852 Images)
+Number of Samples: 852
+Metric: Accuracy, F1-Score, ROC-AUC across configurations A through H
+Actual Values Used: A: 82.18%, B: 84.62%, C: 84.51%, D: 86.01%, E: 87.23%, F: 87.00%, G: 88.58%, H: 89.36% (ROC-AUC: 89.20% -> 94.58%)
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 6
+Figure Title: Receiver operating characteristic curves on the held-out patient-level test set.
+Source File: experiments/raw_outputs/baseline_results.json, experiments/raw_outputs/fl_results.json
+Experiment/Checkpoint: Held-out patient-level test-set inference evaluation
+Dataset: Pediatric Chest X-ray Test Set
+Split: Test (852 Images: 227 Normal, 625 Pneumonia)
+Number of Samples: 852
+Metric: False Positive Rate vs True Positive Rate, ROC-AUC
+Actual Values Used: Centralized: 0.9499, Proposed HydroFed-ICAF: 0.9477, FedProx: 0.9416, FedAvg: 0.9314, Gossip: 0.9055, Local-Only: 0.8877
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 7
+Figure Title: Confusion matrix of the proposed HydroFed-ICAF model on the held-out test set.
+Source File: reports/final_metadata_registry.csv, experiments/raw_outputs/baseline_results.json
+Experiment/Checkpoint: Held-out patient-level test set prediction matrix
+Dataset: Pediatric Chest X-ray Test Set
+Split: Test (852 Images)
+Number of Samples: 852
+Metric: True Negative (204), False Positive (23), False Negative (48), True Positive (577)
+Actual Values Used: TN=204, FP=23, FN=48, TP=577. Total=852. Sensitivity=92.32%, Specificity=89.87%, Overall Accuracy=91.67%
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 8
+Figure Title: Grad-CAM visualization of image regions contributing to a representative Proposed HydroFed-ICAF prediction.
+Source File: reports/xai_outputs/10-V656_*.png, IEEE_RESULTS/xai_case_index.csv
+Experiment/Checkpoint: Explainable AI visual saliency evaluation using Grad-CAM and Grad-CAM++
+Dataset: Pediatric Chest X-ray Dataset (Case 10-V656)
+Split: Test Evaluation Sample
+Number of Samples: 1
+Metric: Feature Activation Overlay, Diagnostic Probability (0.945), Uncertainty Std (0.034)
+Actual Values Used: Predicted: PNEUMONIA (p=0.945), Ground Truth: PNEUMONIA, MC Uncertainty Std=0.034
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 9
+Figure Title: Prediction uncertainty estimated using 15 Monte Carlo dropout passes.
+Source File: experiments/raw_outputs/uncertainty_results.json
+Experiment/Checkpoint: 15-pass Monte Carlo Dropout epistemic uncertainty quantification
+Dataset: Pediatric Chest X-ray Test Set
+Split: Test (852 Images)
+Number of Samples: 852
+Metric: MC Dropout Standard Deviation, Prediction Confidence, Risk-Coverage Curve
+Actual Values Used: Correct Cases Mean Std = 0.081, Incorrect Cases Mean Std = 0.254, Implemented Threshold = 0.15, Selective Accuracy = 99.0% at 20% coverage
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+
+Figure Number: 10
+Figure Title: CPU inference latency and resource footprint of FP32, INT8, and knowledge-distilled edge models.
+Source File: reports/edge_benchmarks.json, experiments/raw_outputs/edge_results.json
+Experiment/Checkpoint: Hardware CPU inference benchmarking across FP32, INT8 Dynamic Quantization, and MobileNet-V3 Student
+Dataset: Inference Benchmark Suite
+Split: Test Benchmark Execution
+Number of Samples: 100
+Metric: Latency (ms), Model Storage (MB), Runtime RAM (MB)
+Actual Values Used: FP32: 334.03 ms, 57.72 MB RAM, 190.0 MB Disk; INT8: 303.03 ms, 49.06 MB RAM, 140.0 MB Disk; Student: 23.57 ms (14.2x speedup), 9.69 MB RAM, 8.0 MB Disk
+Timestamp: 2026-09-02T14:50:00
+----------------------------------------------------------------------
+

@@ -1,0 +1,5 @@
+OS: Windows 10 (AMD64)
+Processor: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+CPU Cores: 8
+CUDA Available: False
+GPU: None (CPU execution)

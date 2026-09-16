@@ -1,0 +1,142 @@
+{
+    "dataset": {
+        "total_patients": 2790,
+        "total_images": 5824,
+        "train_patients": 1952,
+        "train_images": 4112,
+        "val_patients": 418,
+        "val_images": 860,
+        "test_patients": 420,
+        "test_images": 852,
+        "patient_leakage": 0
+    },
+    "models_evaluated": {
+        "Local-Only": {
+            "accuracy": 0.8312,
+            "std_accuracy": 0.0058,
+            "f1": 0.8584,
+            "sensitivity": 0.863,
+            "specificity": 0.7827,
+            "roc_auc": 0.8877,
+            "worst_client_accuracy": 0.7155
+        },
+        "Centralized Baseline": {
+            "accuracy": 0.9034,
+            "std_accuracy": 0.0053,
+            "f1": 0.9209,
+            "sensitivity": 0.9237,
+            "specificity": 0.8749,
+            "roc_auc": 0.9499,
+            "worst_client_accuracy": 0.852
+        },
+        "FedAvg": {
+            "accuracy": 0.886,
+            "std_accuracy": 0.0035,
+            "f1": 0.8994,
+            "sensitivity": 0.909,
+            "specificity": 0.8461,
+            "roc_auc": 0.9314,
+            "worst_client_accuracy": 0.7923
+        },
+        "FedProx": {
+            "accuracy": 0.8925,
+            "std_accuracy": 0.0041,
+            "f1": 0.906,
+            "sensitivity": 0.9108,
+            "specificity": 0.8541,
+            "roc_auc": 0.9416,
+            "worst_client_accuracy": 0.8115
+        },
+        "Decentralized Gossip": {
+            "accuracy": 0.8487,
+            "std_accuracy": 0.0037,
+            "f1": 0.8766,
+            "sensitivity": 0.8781,
+            "specificity": 0.8056,
+            "roc_auc": 0.9055,
+            "worst_client_accuracy": 0.7783
+        },
+        "Proposed HydroFed-ICAF": {
+            "accuracy": 0.8982,
+            "std_accuracy": 0.0046,
+            "f1": 0.9168,
+            "sensitivity": 0.9182,
+            "specificity": 0.8617,
+            "roc_auc": 0.9477,
+            "worst_client_accuracy": 0.8323
+        }
+    },
+    "ablation_study": {
+        "A_DenseNet151_Baseline": {
+            "accuracy": 0.8218,
+            "f1": 0.8517,
+            "roc_auc": 0.892
+        },
+        "B_DenseNet151_FFT": {
+            "accuracy": 0.8462,
+            "f1": 0.873,
+            "roc_auc": 0.907
+        },
+        "C_DenseNet151_IIFR": {
+            "accuracy": 0.8451,
+            "f1": 0.8693,
+            "roc_auc": 0.9049
+        },
+        "D_DenseNet151_BMTF": {
+            "accuracy": 0.8601,
+            "f1": 0.886,
+            "roc_auc": 0.9195
+        },
+        "E_Dual_Gating": {
+            "accuracy": 0.8723,
+            "f1": 0.8883,
+            "roc_auc": 0.9237
+        },
+        "F_Clinical_Concatenation": {
+            "accuracy": 0.87,
+            "f1": 0.9,
+            "roc_auc": 0.9324
+        },
+        "G_Multimodal_CrossAttention": {
+            "accuracy": 0.8858,
+            "f1": 0.905,
+            "roc_auc": 0.9395
+        },
+        "H_Proposed_HydroFed_ICAF_Multimodal": {
+            "accuracy": 0.8936,
+            "f1": 0.9143,
+            "roc_auc": 0.9458
+        }
+    },
+    "edge_benchmarks": {
+        "FP32_DenseNet151": {
+            "latency_ms": 334.03,
+            "ram_mb": 57.72,
+            "storage_mb": 190.0
+        },
+        "INT8_DenseNet151": {
+            "latency_ms": 303.03,
+            "ram_mb": 49.06,
+            "storage_mb": 140.0
+        },
+        "MobileNetV3_Student": {
+            "latency_ms": 23.57,
+            "ram_mb": 9.69,
+            "storage_mb": 8.0,
+            "speedup": 14.17
+        }
+    },
+    "uncertainty": {
+        "mc_passes": 15,
+        "correct_mean_std": 0.081,
+        "incorrect_mean_std": 0.254,
+        "uncertainty_threshold": 0.15,
+        "selective_accuracy_at_20pct_coverage": 0.99
+    },
+    "security": {
+        "encryption": "AES-256-GCM",
+        "max_norm_threshold": 100.0,
+        "encryption_latency_1mb_ms": 2.06,
+        "encryption_latency_100mb_ms": 180.19
+    }
+}

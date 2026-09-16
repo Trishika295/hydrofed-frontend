@@ -1,0 +1,22 @@
+{
+    "0.1": {
+        "accuracy": 0.868793323101869,
+        "consensus_error": 0.18,
+        "convergence_round": 9
+    },
+    "0.3": {
+        "accuracy": 0.8871492822863363,
+        "consensus_error": 0.12,
+        "convergence_round": 7
+    },
+    "0.5": {
+        "accuracy": 0.8959727628080645,
+        "consensus_error": 0.08,
+        "convergence_round": 6
+    },
+    "1.0": {
+        "accuracy": 0.8986849007057598,
+        "consensus_error": 0.04,
+        "convergence_round": 5
+    }
+}

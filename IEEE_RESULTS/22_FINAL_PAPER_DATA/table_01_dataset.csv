@@ -1,0 +1,9 @@
+Parameter,Value
+Total Patient Count,2790
+Total Image Count,5824
+Training Split Samples,"4112 (NORMAL: 1108, PNEUMONIA: 3004)"
+Validation Split Samples,"860 (NORMAL: 244, PNEUMONIA: 616)"
+Test Split Samples,"852 (NORMAL: 227, PNEUMONIA: 625)"
+Patient Demographics Age (Years),"Mean=12.6, SD=17.0 (Synthetic)"
+Gender Distribution,"Male: 2917, Female: 2907 (Synthetic)"
+Prevalence variables,"Diabetes=210, Passive Smoke=1654, Respiratory Family History=832 (Synthetic)"

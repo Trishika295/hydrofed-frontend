@@ -1,0 +1,19 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# Databases
+*.db
+*.sqlite
+test_clinic_temp.db
+clinic_local.db
+
+# Datasets / Large media archives
+archive (4)/

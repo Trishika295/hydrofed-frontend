@@ -1,0 +1,9 @@
+{
+    "train_patients_count": 1952,
+    "val_patients_count": 418,
+    "test_patients_count": 420,
+    "overlap_train_val": 0,
+    "overlap_train_test": 0,
+    "overlap_val_test": 0,
+    "status": "PASS"
+}

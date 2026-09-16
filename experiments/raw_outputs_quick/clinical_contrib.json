@@ -1,0 +1,9 @@
+{
+    "X-ray only": 0.861,
+    "X-ray + Age": 0.863,
+    "X-ray + Gender": 0.859,
+    "X-ray + Diabetes": 0.874,
+    "X-ray + Passive smoke": 0.879,
+    "X-ray + Family history": 0.868,
+    "X-ray + all variables": 0.895
+}

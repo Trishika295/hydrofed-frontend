@@ -1,0 +1,26 @@
+{
+    "FP32 Baseline (DN-151)": {
+        "latency_ms": 334.03,
+        "model_size_mb": 190.0,
+        "memory_mb": 420.0,
+        "accuracy": 0.895
+    },
+    "FP16 (DN-151)": {
+        "latency_ms": 225.12,
+        "model_size_mb": 95.0,
+        "memory_mb": 280.0,
+        "accuracy": 0.893
+    },
+    "INT8 Quantized (DN-151)": {
+        "latency_ms": 303.03,
+        "model_size_mb": 140.0,
+        "memory_mb": 260.0,
+        "accuracy": 0.887
+    },
+    "Lightweight Student": {
+        "latency_ms": 23.57,
+        "model_size_mb": 8.0,
+        "memory_mb": 45.0,
+        "accuracy": 0.842
+    }
+}

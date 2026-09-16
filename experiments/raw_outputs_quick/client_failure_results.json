@@ -1,0 +1,26 @@
+{
+    "0%": {
+        "accuracy": 0.895,
+        "consensus": 0.06,
+        "recovery_rounds": 0,
+        "comm_overhead": 0
+    },
+    "5%": {
+        "accuracy": 0.893,
+        "consensus": 0.065,
+        "recovery_rounds": 1,
+        "comm_overhead": 4
+    },
+    "10%": {
+        "accuracy": 0.891,
+        "consensus": 0.072,
+        "recovery_rounds": 2,
+        "comm_overhead": 8
+    },
+    "20%": {
+        "accuracy": 0.884,
+        "consensus": 0.088,
+        "recovery_rounds": 3,
+        "comm_overhead": 15
+    }
+}

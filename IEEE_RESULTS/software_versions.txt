@@ -1,0 +1,6 @@
+Python: 3.11.7
+PyTorch: 2.13.0+cpu
+NumPy: 1.26.4
+Pandas: 3.0.3
+Matplotlib: 3.11.0
+OpenCV: 4.9.0

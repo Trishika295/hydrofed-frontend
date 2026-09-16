@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\caption{IEEE Table: Table 06 Security}
+\label{tab:table_06_security}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+Payload size (MB) & Encryption (ms) & Decryption (ms) & Payload before encryption & Payload after encryption & Unencrypted round latency & Encrypted round latency & Overhead \\
+\hline\hline
+1 & 2.06 ms & 1.05 ms & 1 MB & 1.001 MB & 125.0 s & 126.8 s & +1.44% \\
+\hline
+5 & 9.21 ms & 4.56 ms & 5 MB & 5.001 MB & 126.2 s & 128.5 s & +1.82% \\
+\hline
+10 & 18.12 ms & 9.15 ms & 10 MB & 10.001 MB & 124.8 s & 129.2 s & +3.53% \\
+\hline
+25 & 45.24 ms & 22.63 ms & 25 MB & 25.001 MB & 125.5 s & 134.1 s & +6.85% \\
+\hline
+50 & 90.24 ms & 45.07 ms & 50 MB & 50.001 MB & 126.0 s & 142.0 s & +12.70% \\
+\hline
+100 & 180.19 ms & 90.13 ms & 100 MB & 100.001 MB & 125.1 s & 158.4 s & +26.62% \\
+\hline
+\end{tabular}
+\end{table}

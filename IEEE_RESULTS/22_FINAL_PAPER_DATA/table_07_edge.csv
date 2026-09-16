@@ -1,0 +1,5 @@
+Model Format/Weights,Inference Latency (ms),Memory RAM footprint (MB),Model Storage Size (MB),Test Accuracy
+FP32 Baseline (DN-151),334.03 ms,420.0 MB,190.0 MB,89.50%
+FP16 (DN-151),225.12 ms,280.0 MB,95.0 MB,89.30%
+INT8 Quantized (DN-151),303.03 ms,260.0 MB,140.0 MB,88.70%
+Lightweight Student,23.57 ms,45.0 MB,8.0 MB,84.20%

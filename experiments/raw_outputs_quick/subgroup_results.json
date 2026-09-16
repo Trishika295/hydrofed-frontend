@@ -1,0 +1,36 @@
+{
+    "age_groups": {
+        "0-2 years (Infant)": {
+            "accuracy": 0.878,
+            "samples": 310,
+            "clinical_data_type": "synthetic"
+        },
+        "2-5 years (Toddler)": {
+            "accuracy": 0.891,
+            "samples": 452,
+            "clinical_data_type": "synthetic"
+        },
+        "5-10 years (Child)": {
+            "accuracy": 0.902,
+            "samples": 96,
+            "clinical_data_type": "synthetic"
+        },
+        "10+ years (Adolescent)": {
+            "accuracy": 0.915,
+            "samples": 20,
+            "clinical_data_type": "synthetic"
+        }
+    },
+    "gender_groups": {
+        "Male": {
+            "accuracy": 0.893,
+            "samples": 442,
+            "clinical_data_type": "synthetic"
+        },
+        "Female": {
+            "accuracy": 0.897,
+            "samples": 436,
+            "clinical_data_type": "synthetic"
+        }
+    }
+}

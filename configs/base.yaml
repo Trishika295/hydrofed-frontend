@@ -1,0 +1,47 @@
+# HydroFed-ICAF Master Configuration
+
+# Data Pipeline Parameters
+data:
+  registry_csv: "reports/final_metadata_registry.csv"
+  synthetic_clinical_csv: "reports/synthetic_patients_clinical.csv"
+  target_size: [224, 224]
+  use_clahe: true
+  primary_task: true  # true for NORMAL vs PNEUMONIA, false for NORMAL vs BACTERIA vs VIRUS
+
+# Neural Network Architecture
+model:
+  embed_dim: 128
+  num_classes: 2
+  drop_rate: 0.3
+  pretrained_backbone: false  # Load uninitialized for local CPU safety checks by default
+
+# Local Training Parameters
+training:
+  lr: 0.001
+  batch_size: 16
+  local_epochs: 1
+  device: "cpu"
+
+# Decentralized Federated Setup
+federated:
+  num_clients: 60
+  dirichlet_alpha: 0.5
+  topology: "small_world"  # small_world | ring | grid | random
+  small_world_k: 4
+  small_world_p: 0.15
+  communication_rounds: 3
+  async_mode: false
+  staleness_decay_beta: 0.2
+
+# Consensus Gating Parameters
+hydrofed:
+  flow_gamma: 0.1
+  eta_max: 0.45
+  mu_fedprox: 0.01  # proximal coefficient for FedProx comparison
+
+# Security & Encryption
+security:
+  encryption: "AES-256-GCM"
+  master_secret: "decentralized_clinical_consensus_key_2026"
+  enable_validation: true
+  max_norm_threshold: 100.0

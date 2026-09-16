@@ -1,0 +1,15 @@
+{
+    "test_name": "Paired t-test",
+    "sample_size": 5,
+    "statistic": -88.1816307401944,
+    "p_value": 9.914401462979363e-08,
+    "effect_size": 39.436024140371956,
+    "confidence_interval_95": [
+        0.04183982523868352,
+        0.04456017476131655
+    ],
+    "mean_gossip": 0.8516,
+    "std_gossip": 0.0030066592756745844,
+    "mean_hydrofed": 0.8948,
+    "std_hydrofed": 0.002785677655436826
+}

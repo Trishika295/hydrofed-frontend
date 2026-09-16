@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\caption{IEEE Table: Table 03 Ablation}
+\label{tab:table_03_ablation}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+Config & Accuracy & F1-Score & ROC-AUC & Sensitivity & Specificity & MCC & Description \\
+\hline\hline
+A & 82.18% & 85.17% & 89.20% & 86.17% & 77.27% & 0.640 & Raw Spatial visual features only (DenseNet-151 baseline) \\
+\hline
+B & 84.62% & 87.30% & 90.70% & 88.24% & 80.32% & 0.687 & Integrates Fourier frequency domain textures branch \\
+\hline
+C & 84.51% & 86.93% & 90.50% & 87.41% & 79.64% & 0.684 & Adds selective channel response gating (IIFR) \\
+\hline
+D & 86.01% & 88.60% & 91.95% & 89.28% & 81.62% & 0.717 & Bio-inspired multiscale threat-aware spatial-frequency fusion (BMTF) \\
+\hline
+E & 87.23% & 88.83% & 92.36% & 89.61% & 82.90% & 0.731 & Dual gating (BMTF + IIFR) \\
+\hline
+F & 87.00% & 90.00% & 93.24% & 90.29% & 83.00% & 0.742 & E + clinical encoding concatenation vector (Concatenation) \\
+\hline
+G & 88.58% & 90.50% & 93.95% & 91.49% & 84.97% & 0.765 & E + multimodal cross-attention visual map alignment \\
+\hline
+H & 89.36% & 91.43% & 94.58% & 91.52% & 85.85% & 0.788 & E + Adaptive Immune Cross-Attention gating (AICA, Full Model) \\
+\hline
+\end{tabular}
+\end{table}

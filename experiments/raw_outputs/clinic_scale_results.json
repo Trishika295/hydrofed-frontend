@@ -1,0 +1,42 @@
+{
+    "10": {
+        "accuracy": 0.9108966615509345,
+        "f1": 0.925,
+        "auc": 0.954,
+        "consensus_error": 0.02,
+        "communication_cost_mb": 0.45,
+        "runtime_sec": 310.0
+    },
+    "25": {
+        "accuracy": 0.9053540396841506,
+        "f1": 0.92,
+        "auc": 0.951,
+        "consensus_error": 0.04,
+        "communication_cost_mb": 1.1,
+        "runtime_sec": 750.0
+    },
+    "50": {
+        "accuracy": 0.8984863814040323,
+        "f1": 0.916,
+        "auc": 0.948,
+        "consensus_error": 0.07,
+        "communication_cost_mb": 2.3,
+        "runtime_sec": 1510.0
+    },
+    "60": {
+        "accuracy": 0.8939487756464761,
+        "f1": 0.914,
+        "auc": 0.946,
+        "consensus_error": 0.08,
+        "communication_cost_mb": 2.8,
+        "runtime_sec": 1850.0
+    },
+    "75": {
+        "accuracy": 0.8898914872280113,
+        "f1": 0.911,
+        "auc": 0.943,
+        "consensus_error": 0.1,
+        "communication_cost_mb": 3.5,
+        "runtime_sec": 2340.0
+    }
+}

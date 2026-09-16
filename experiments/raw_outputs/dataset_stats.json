@@ -1,0 +1,26 @@
+{
+    "total_patients": 2790,
+    "total_images": 5824,
+    "train_images": 4112,
+    "val_images": 860,
+    "test_images": 852,
+    "train_normal": 1108,
+    "train_pneu": 3004,
+    "val_normal": 244,
+    "val_pneu": 616,
+    "test_normal": 227,
+    "test_pneu": 625,
+    "age_distribution": {
+        "mean": 12.592084478021976,
+        "std": 16.9647675893364,
+        "min": 0.5,
+        "max": 74.8
+    },
+    "gender": {
+        "Male": 2917,
+        "Female": 2907
+    },
+    "diabetes": 210,
+    "smoke": 1654,
+    "family": 832
+}

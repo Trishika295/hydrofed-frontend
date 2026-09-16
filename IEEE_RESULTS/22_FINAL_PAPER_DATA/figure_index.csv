@@ -1,0 +1,34 @@
+figure_id,filename,experiment,description,data_source,seed,status
+FIG-01,Fig_01_dataset_distribution.png,Dataset Distribution,Dataset statistics class distribution counts,dataset_stats.json,42,COMPLETED
+FIG-02,Fig_02_train_val_test_distribution.png,Train Val Test Distribution,Train/Val/Test split subclass distribution,dataset_stats.json,42,COMPLETED
+FIG-03,Fig_03_preprocessing.png,Preprocessing,Image intensity histogram transformation,dataset_stats.json,42,COMPLETED
+FIG-04,Fig_04_baseline_accuracy.png,Baseline Accuracy,Baseline models test accuracy comparison,baseline_results.json,42,COMPLETED
+FIG-05,Fig_05_baseline_f1.png,Baseline F1,Baseline models test F1-score comparison,baseline_results.json,42,COMPLETED
+FIG-06,Fig_06_baseline_auc.png,Baseline Auc,Baseline models test ROC-AUC comparison,baseline_results.json,42,COMPLETED
+FIG-07,Fig_07_training_curves.png,Training Curves,Backbone loss & accuracy curves vs epoch,baseline_results.json,42,COMPLETED
+FIG-08,Fig_08_ablation_accuracy.png,Ablation Accuracy,Bio-inspired module ablation accuracy comparison,ablation_results.json,42,COMPLETED
+FIG-09,Fig_09_ablation_auc.png,Ablation Auc,Bio-inspired module ablation ROC-AUC comparison,ablation_results.json,42,COMPLETED
+FIG-10,Fig_10_frequency_fusion.png,Frequency Fusion,Spatial vs frequency vs fusion model performance,spatial_freq_results.json,42,COMPLETED
+FIG-11,Fig_11_multimodal_comparison.png,Multimodal Comparison,Concatenation vs cross-attention vs AICA multimodal,multimodal_results.json,42,COMPLETED
+FIG-12,Fig_12_cross_attention_comparison.png,Cross Attention Comparison,EHR attribute cross-attention weights mapping,multimodal_results.json,42,COMPLETED
+FIG-13,Fig_13_gradcam_examples.png,Gradcam Examples,Saliency Grad-CAM overlays for TP/TN/FP/FN cases,xai_case_index.csv,42,COMPLETED
+FIG-14,Fig_14_uncertainty_analysis.png,Uncertainty Analysis,MC Dropout uncertainty & risk-coverage evaluation,uncertainty_results.json,42,COMPLETED
+FIG-15,Fig_15_fl_accuracy.png,Fl Accuracy,Global model accuracy convergence vs FL round,fl_results.json,42,COMPLETED
+FIG-16,Fig_16_fl_f1.png,Fl F1,Global model F1-score convergence vs FL round,fl_results.json,42,COMPLETED
+FIG-17,Fig_17_fl_auc.png,Fl Auc,Global model ROC-AUC convergence vs FL round,fl_results.json,42,COMPLETED
+FIG-18,Fig_18_client_distribution.png,Client Distribution,Violin metric distributions across 60 clients,fl_results.json,42,COMPLETED
+FIG-19,Fig_19_consensus_error.png,Consensus Error,Average pairwise model disagreement consensus error vs round,fl_results.json,42,COMPLETED
+FIG-20,Fig_20_gossip_vs_hydrofed.png,Gossip Vs Hydrofed,Head-to-head Gossip vs HydroFed consensus convergence speed,gossip_vs_hydrofed.json,42,COMPLETED
+FIG-21,Fig_21_hydrofed_pressure.png,Hydrofed Pressure,HydroFed flow parameter pressure and disagreement dynamics,hydrofed_results.json,42,COMPLETED
+FIG-22,Fig_22_hydrofed_flow.png,Hydrofed Flow,Volumetric parameter flow magnitude vs round,hydrofed_results.json,42,COMPLETED
+FIG-23,Fig_23_topology_comparison.png,Topology Comparison,Network communication topologies accuracy comparison,topology_results.json,42,COMPLETED
+FIG-24,Fig_24_alpha_comparison.png,Alpha Comparison,Non-IID Dirichlet alpha sensitivity analysis,non_iid_results.json,42,COMPLETED
+FIG-25,Fig_25_client_scale.png,Client Scale,Clinic scaling node count performance delta evaluation,clinic_scale_results.json,42,COMPLETED
+FIG-26,Fig_26_async_comparison.png,Async Comparison,Sync vs Async model staleness version delay convergence,async_results.json,42,COMPLETED
+FIG-27,Fig_27_aes_latency.png,Aes Latency,AES-256-GCM payload encryption/decryption latencies,aes_results.json,42,COMPLETED
+FIG-28,Fig_28_aes_overhead.png,Aes Overhead,Cryptographic gossip exchange network round-time overhead,aes_results.json,42,COMPLETED
+FIG-29,Fig_29_edge_latency.png,Edge Latency,Edge CPU diagnostics inference latency comparison,edge_results.json,42,COMPLETED
+FIG-30,Fig_30_model_size.png,Model Size,Compact Edge-AI model parameters storage size,edge_results.json,42,COMPLETED
+FIG-31,Fig_31_memory_usage.png,Memory Usage,Edge CPU runtime RAM memory footprint consumption,edge_results.json,42,COMPLETED
+FIG-32,Fig_32_cdss_latency.png,Cdss Latency,CDSS workflow processing latency breakdown,cdss_results.json,42,COMPLETED
+FIG-33,Fig_33_longitudinal_trend.png,Longitudinal Trend,Patient visit tracking timelines longitudinal metrics,longitudinal_results.json,42,COMPLETED

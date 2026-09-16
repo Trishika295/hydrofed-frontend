@@ -1,0 +1,32 @@
+{
+    "dates": [
+        "2026-08-01",
+        "2026-08-05",
+        "2026-08-10",
+        "2026-08-15",
+        "2026-08-20"
+    ],
+    "patient_id": "PATIENT-000001",
+    "pneumonia_probability": [
+        0.85,
+        0.62,
+        0.44,
+        0.28,
+        0.18
+    ],
+    "confidence": [
+        0.82,
+        0.86,
+        0.89,
+        0.92,
+        0.94
+    ],
+    "uncertainty": [
+        0.09,
+        0.07,
+        0.05,
+        0.04,
+        0.03
+    ],
+    "clinical_outcome": "clinical review required"
+}

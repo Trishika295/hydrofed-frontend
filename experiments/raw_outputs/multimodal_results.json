@@ -1,0 +1,69 @@
+{
+    "X-ray only": {
+        "accuracy": 0.861,
+        "f1": 0.885,
+        "auc": 0.92,
+        "sensitivity": 0.892,
+        "specificity": 0.818,
+        "clinical_data_type": "synthetic"
+    },
+    "Clinical only": {
+        "accuracy": 0.612,
+        "f1": 0.543,
+        "auc": 0.651,
+        "sensitivity": 0.52,
+        "specificity": 0.71,
+        "clinical_data_type": "synthetic"
+    },
+    "X-ray + concat": {
+        "accuracy": 0.872,
+        "f1": 0.894,
+        "auc": 0.931,
+        "sensitivity": 0.901,
+        "specificity": 0.832,
+        "clinical_data_type": "synthetic"
+    },
+    "X-ray + cross-attention": {
+        "accuracy": 0.885,
+        "f1": 0.905,
+        "auc": 0.938,
+        "sensitivity": 0.91,
+        "specificity": 0.85,
+        "clinical_data_type": "synthetic"
+    },
+    "X-ray + AICA": {
+        "accuracy": 0.895,
+        "f1": 0.914,
+        "auc": 0.946,
+        "sensitivity": 0.918,
+        "specificity": 0.861,
+        "clinical_data_type": "synthetic"
+    },
+    "attention_weights": {
+        "Age": [
+            0.12,
+            0.08,
+            0.05
+        ],
+        "Gender": [
+            0.03,
+            0.04,
+            0.02
+        ],
+        "Diabetes": [
+            0.28,
+            0.18,
+            0.11
+        ],
+        "Passive Smoke": [
+            0.35,
+            0.22,
+            0.15
+        ],
+        "Family History": [
+            0.22,
+            0.14,
+            0.1
+        ]
+    }
+}

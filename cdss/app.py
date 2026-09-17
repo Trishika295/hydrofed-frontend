@@ -22,6 +22,7 @@ from database.visit_repository import VisitRepository
 from database.audit_repository import AuditRepository
 from cdss.inference_service import InferenceService
 from cdss.longitudinal_engine import LongitudinalTrendEngine
+from cdss.report_generator import generate_clinical_report
 
 # -----------------------------------------------------------------------------
 # App Configuration & Initialization
@@ -79,6 +80,8 @@ if 'current_nav' not in st.session_state:
     st.session_state.current_nav = "Home"
 if 'reg_verified_id' not in st.session_state:
     st.session_state.reg_verified_id = None
+if 'analysis_xray_hash' not in st.session_state:
+    st.session_state.analysis_xray_hash = None
 
 def sync_patient(pid, clinical_data=None):
     """Synchronizes selected_patient_id, active_patient_id, selected_patient, and active_patient_data."""
@@ -1004,7 +1007,7 @@ elif selected_nav == "Patient Search and Selection":
                 st.rerun()
 
 # -----------------------------------------------------------------------------
-# PAGE 4: X-RAY ANALYSIS
+# PAGE 4: X-RAY ANALYSIS (Main Analysis Workspace)
 # -----------------------------------------------------------------------------
 elif selected_nav == "X-Ray Analysis":
     render_top_header()
@@ -1013,7 +1016,7 @@ elif selected_nav == "X-Ray Analysis":
     st.markdown("""
     <div style="margin-bottom: 20px;">
         <h2 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin: 0;">Radiological X-Ray Analysis Workspace</h2>
-        <p style="color: #64748b; font-size: 0.9rem;">Upload or select radiological chest X-ray images for automated multimodal DenseNet-151 inference.</p>
+        <p style="color: #64748b; font-size: 0.9rem;">Upload radiological chest X-ray images for automated multimodal DenseNet-151 inference. Results are displayed directly below after analysis.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1033,19 +1036,20 @@ elif selected_nav == "X-Ray Analysis":
         uploaded_bytes = None
 
         with col_left:
-            st.markdown("#### 1. Configure Radiological Scan")
+            st.markdown("#### 1. Upload Chest X-Ray")
             preset_choice = st.selectbox("Preset Clinical Scans", preset_options)
-            
+
             st.markdown("<p style='text-align: center; color: #94a3b8; margin: 10px 0;'>— OR UPLOAD IMAGE —</p>", unsafe_allow_html=True)
             uploaded_file = st.file_uploader("Upload Chest X-ray (PNG, JPG, JPEG)", type=['png', 'jpg', 'jpeg'])
 
             if uploaded_file is not None:
                 uploaded_bytes = uploaded_file.read()
+                uploaded_file.seek(0)  # Reset file pointer for preview
             elif preset_choice != "-- Upload New Custom Image --":
                 target_image_path = preset_paths[preset_options.index(preset_choice) - 1]
 
         with col_right:
-            st.markdown("#### 2. Image Preview & Validation")
+            st.markdown("#### 2. X-Ray Preview")
             if uploaded_bytes:
                 img_preview = Image.open(uploaded_file)
                 st.image(img_preview, caption=f"Uploaded Image: {uploaded_file.name}", width="stretch")
@@ -1062,15 +1066,32 @@ elif selected_nav == "X-Ray Analysis":
 
         st.markdown("<hr style='border-color: #e2e8f0; margin: 20px 0;'/>", unsafe_allow_html=True)
 
-        if st.button("🚀 Analyze X-Ray with HydroFed CDSS", width="stretch"):
+        # Compute hash of current uploaded image to detect new uploads
+        import hashlib
+        current_xray_hash = None
+        if uploaded_bytes:
+            current_xray_hash = hashlib.md5(uploaded_bytes).hexdigest()
+        elif target_image_path and os.path.exists(target_image_path):
+            with open(target_image_path, 'rb') as _f:
+                current_xray_hash = hashlib.md5(_f.read()).hexdigest()
+
+        # If user uploaded a NEW image, clear stale results from previous image
+        if current_xray_hash and st.session_state.analysis_xray_hash and current_xray_hash != st.session_state.analysis_xray_hash:
+            st.session_state.diagnostic_results = None
+            st.session_state.current_evaluation = None
+            st.session_state.current_cdss_result = None
+            st.session_state.xai_outputs = None
+            st.session_state.analysis_xray_hash = None
+
+        if st.button("🚀 Analyze X-Ray with HydroFed CDSS", width="stretch", key="btn_analyze_xray"):
             if not uploaded_bytes and not target_image_path:
                 st.error("Please configure an X-ray image (upload or preset) before analyzing.")
             else:
-                with st.spinner("Executing BMTF-IIFR preprocessing, DenseNet-151, AICA cross-attention & MC Dropout..."):
+                with st.spinner("Analyzing X-ray — running BMTF-IIFR preprocessing, DenseNet-151, AICA cross-attention & MC Dropout..."):
                     os.makedirs('reports', exist_ok=True)
                     os.makedirs('reports/xai_outputs', exist_ok=True)
                     target_file = 'reports/uploaded_xray.jpeg'
-                    
+
                     if uploaded_bytes:
                         with open(target_file, 'wb') as f:
                             f.write(uploaded_bytes)
@@ -1127,7 +1148,7 @@ elif selected_nav == "X-Ray Analysis":
                     # Commit to SQLite Database
                     v_repo_inst = VisitRepository('clinic_local.db')
                     a_repo_inst = AuditRepository('clinic_local.db')
-                    
+
                     v_repo_inst.create_visit(visit_id, pat_id, 'Client-01', 'v1.0')
                     v_repo_inst.store_clinical_observation(
                         visit_id, age, gender, diabetes, smoke, family,
@@ -1156,6 +1177,7 @@ elif selected_nav == "X-Ray Analysis":
                         'confidence': res['confidence'],
                         'uncertainty': res['uncertainty'],
                         'total_cdss_latency': res['total_cdss_latency'],
+                        'core_inference_latency': res.get('core_inference_latency'),
                         'raw_image_path': target_file,
                         'preprocessed_image_path': prep_vis_path,
                         'gradcam_path': res['gradcam_heatmap_path'],
@@ -1171,18 +1193,156 @@ elif selected_nav == "X-Ray Analysis":
                         'gradcam': res['gradcam_heatmap_path'],
                         'gradcam_plus': res['gradcam_plus_heatmap_path']
                     }
+                    # Track which image produced this result
+                    st.session_state.analysis_xray_hash = current_xray_hash
 
-                    st.success("✅ Diagnostic analysis complete! Results stored in local SQLite database.")
+                st.success("✅ Diagnostic analysis complete! Results stored in local SQLite database.")
 
-                    c_nav1, c_nav2 = st.columns(2)
-                    with c_nav1:
-                        if st.button("View CDSS Classifier Results", width="stretch"):
-                            st.session_state.current_nav = "CDSS Classifier"
-                            st.rerun()
-                    with c_nav2:
-                        if st.button("View Pathology Salience (XAI)", width="stretch"):
-                            st.session_state.current_nav = "Pathology Salience (XAI)"
-                            st.rerun()
+        # ── INLINE RESULTS SECTION ─────────────────────────────────────
+        # Display results persistently from session state (survives Streamlit reruns)
+        res = st.session_state.diagnostic_results
+        if res and (st.session_state.selected_patient_id == active_pid or st.session_state.active_patient_id == active_pid):
+            st.markdown("<hr style='border-color: #e2e8f0; margin: 20px 0;'/>", unsafe_allow_html=True)
+
+            # ── AI-Assisted CDSS Result ────────────────────────────────
+            is_pneu = res['predicted_class'] == 1
+            badge_class = "badge-red" if is_pneu else "badge-green"
+            pred_label = "PNEUMONIA" if is_pneu else "NORMAL"
+
+            st.markdown(f"""
+            <div style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 18px 24px; margin-bottom: 22px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);">
+                <div style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; color: #2563eb; text-transform: uppercase;">AI-ASSISTED CDSS RESULT</div>
+                <div style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-top: 4px;">
+                    Prediction: <span class="badge-status {badge_class}" style="font-size: 1.25rem; vertical-align: middle;">{pred_label}</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            m1, m2, m3, m4 = st.columns(4)
+            with m1:
+                st.markdown(f"""
+                <div class="med-card" style="text-align: center;">
+                    <div class="card-header-label">PREDICTION</div>
+                    <div style="margin: 10px 0;"><span class="badge-status {badge_class}" style="font-size: 1.15rem; padding: 6px 16px;">{pred_label}</span></div>
+                    <div class="card-subtext">AI-assisted diagnosis</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with m2:
+                st.markdown(f"""
+                <div class="med-card" style="text-align: center;">
+                    <div class="card-header-label">PNEUMONIA PROBABILITY</div>
+                    <div class="card-stat-value" style="color: #dc2626;">{res['pneumonia_probability']*100:.2f}%</div>
+                    <div class="card-subtext">Calibrated Softmax index</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with m3:
+                st.markdown(f"""
+                <div class="med-card" style="text-align: center;">
+                    <div class="card-header-label">CONFIDENCE</div>
+                    <div class="card-stat-value" style="color: #059669;">{res['confidence']*100:.2f}%</div>
+                    <div class="card-subtext">Mean ensemble score</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with m4:
+                st.markdown(f"""
+                <div class="med-card" style="text-align: center;">
+                    <div class="card-header-label">UNCERTAINTY (MC DROPOUT)</div>
+                    <div class="card-stat-value" style="color: #d97706;">{res['uncertainty']:.4f}</div>
+                    <div class="card-subtext">Inference Latency: {res['total_cdss_latency']*1000:.1f} ms</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            # ── Uncertainty Safety Check ───────────────────────────────
+            if res['uncertainty'] > 0.15:
+                st.markdown("""
+                <div style="background: #fef2f2; border: 2px solid #ef4444; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+                    <h4 style="color: #dc2626; margin: 0 0 4px 0;">🚨 CLINICIAN REVIEW REQUIRED</h4>
+                    <p style="color: #991b1b; margin: 0; font-size: 0.92rem;">
+                        Predictive uncertainty exceeds nominal safety boundary (0.1500). The model indicates high variance across stochastic passes. Do not rely on automated indices without radiologist corroboration.
+                    </p>
+                </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.markdown("""
+                <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 12px; padding: 14px; margin-bottom: 20px;">
+                    <span style="color: #065f46; font-weight: 700;">✅ Uncertainty Index Within Nominal Limits (≤ 0.1500).</span>
+                </div>
+                """, unsafe_allow_html=True)
+
+            # ── Clinical Disclaimer ────────────────────────────────────
+            st.info("⚠️ **AI-assisted decision support — not a replacement for clinical judgment.** This result is intended to support clinical assessment and does not replace professional clinical judgment. This system does not prescribe autonomous clinical treatments or medications.")
+
+            # ── XAI / Pathology Salience ───────────────────────────────
+            st.markdown("<hr style='border-color: #e2e8f0; margin: 20px 0;'/>", unsafe_allow_html=True)
+            st.markdown("""
+            <div style="margin-bottom: 16px;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0;">XAI / Pathology Salience</h3>
+                <p style="color: #64748b; font-size: 0.85rem;">Explainability heatmaps targeting the final DenseNet-151 normalization layer.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            raw_p = res.get('raw_image_path', '')
+            gcam_p = res.get('gradcam_path', '')
+            gcam_pp = res.get('gradcam_plus_path', '')
+
+            col_orig, col_x1, col_x2 = st.columns(3)
+            with col_orig:
+                st.markdown("#### Original X-ray")
+                if os.path.exists(raw_p):
+                    st.image(raw_p, caption="Original Patient Radiograph", width="stretch")
+                else:
+                    st.write("Original X-ray image file not found.")
+            with col_x1:
+                st.markdown("#### Grad-CAM")
+                if os.path.exists(gcam_p):
+                    st.image(gcam_p, caption="Grad-CAM (DenseNet-151 Final Norm)", width="stretch")
+                else:
+                    st.write("Grad-CAM visualization is not available.")
+            with col_x2:
+                st.markdown("#### Grad-CAM++")
+                if os.path.exists(gcam_pp):
+                    st.image(gcam_pp, caption="Grad-CAM++ (Higher-Order Gradient Sensitivity)", width="stretch")
+                else:
+                    st.write("Grad-CAM++ visualization is not available.")
+
+            st.markdown("""
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px; margin: 12px 0 20px 0;">
+                <span style="color: #1e40af; font-size: 0.85rem;">ℹ️ <strong>Explainability Notice:</strong> Highlighted regions represent image areas that contributed to the model prediction. They illustrate network gradient salience and do not represent confirmed anatomical lesion locations.</span>
+            </div>
+            """, unsafe_allow_html=True)
+
+            # ── PDF Report Download ────────────────────────────────────
+            st.markdown("<hr style='border-color: #e2e8f0; margin: 20px 0;'/>", unsafe_allow_html=True)
+
+            try:
+                p_info = PatientRepository('clinic_local.db').get_patient(active_pid)
+                v_repo_rpt = VisitRepository('clinic_local.db')
+                visit_hist = v_repo_rpt.get_visit_history(active_pid)
+
+                pdf_bytes, pdf_filename = generate_clinical_report(
+                    patient_info=p_info,
+                    patient_data=st.session_state.active_patient_data,
+                    diagnostic_result=res,
+                    visit_history=visit_hist,
+                    clinician_name=st.session_state.clinician_name,
+                    xray_path=res.get('raw_image_path'),
+                    gradcam_path=res.get('gradcam_path'),
+                    gradcam_plus_path=res.get('gradcam_plus_path')
+                )
+
+                if pdf_bytes:
+                    st.download_button(
+                        label="📄 Download Complete PDF Report",
+                        data=pdf_bytes,
+                        file_name=pdf_filename,
+                        mime="application/pdf",
+                        key="btn_download_pdf_report"
+                    )
+                else:
+                    st.error(f"Report generation issue: {pdf_filename}")
+            except Exception as e:
+                st.error(f"Unable to generate the report: {str(e)}")
+
 
 # -----------------------------------------------------------------------------
 # PAGE 5: ACTIVE CLINICAL INPUTS

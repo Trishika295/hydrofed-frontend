@@ -12,15 +12,22 @@ from data.preprocessing import ChestXRayPreprocessor
 class InferenceService:
     def __init__(self, model_path=None, num_classes=2, embed_dim=128, device='cpu'):
         self.device = torch.device(device)
-        self.model = HydroFedMultimodalModel(embed_dim=embed_dim, num_classes=num_classes, pretrained_backbone=False)
+        self.weights_loaded = False
+        # Use pretrained_backbone=True so DenseNet-151 loads ImageNet pretrained features
+        # from DenseNet-169. This ensures meaningful feature extraction even without
+        # a fine-tuned checkpoint, making different X-rays produce different predictions.
+        self.model = HydroFedMultimodalModel(embed_dim=embed_dim, num_classes=num_classes, pretrained_backbone=True)
         
-        # Load weights if available
+        # Load trained checkpoint weights if available
         if model_path and os.path.exists(model_path):
             try:
                 self.model.load_state_dict(torch.load(model_path, map_location=device))
-                print(f"Inference model loaded weights from: {model_path}")
+                self.weights_loaded = True
+                print(f"Inference model loaded trained weights from: {model_path}")
             except Exception as e:
-                print(f"Warning: Failed to load weights from {model_path} ({e}). Using initialized weights.")
+                print(f"Warning: Failed to load weights from {model_path} ({e}). Using pretrained backbone with untrained classifier.")
+        else:
+            print("Notice: No trained model checkpoint provided. Using pretrained DenseNet backbone with untrained classification head.")
                 
         self.model.to(self.device)
         self.model.eval()
